@@ -14,3 +14,8 @@ You can also enable an automatic woke up message when disabling the alarm by pre
 As I said I developed this extension to use SillyTavern like an alarm clock that would send me a message every morning. My personal setup is using an external batch command to send the computer to sleep and to wake it up say 10 minutes before the alarm in SillyTavern is fired and then the alarm fires and with a TTS service you have an anime AI girlfriend waking you up.
 
 If there is demand I might make this into a more general-purpose tool and allow it to set up multiple alarms at once but for now I'm done with this project. Hope you like it and if so leave me a star :D.
+
+Also thank you to [city-unit][city-unitLink] as this project is based on his Idle extension for sillyTavern.
+
+
+[city-unitLink]: https://github.com/city-unit
