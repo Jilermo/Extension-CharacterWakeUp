@@ -16,7 +16,7 @@ let wakeUpAlarmTimeOut=null;
 let wakeUpRepeatAlarm = null;
 let wokeUpAlarm = null;
 let repeatCount = 0;
-let resetToDefaults=true;
+let resetToDefaults=false;
 let wakingUpUser=false;
 let millisTillTime=10;
 
@@ -42,7 +42,7 @@ let defaultSettings = {
         "It's the next day and it's time to wake up {{user}} send write a message to wake him up, remember to take into account his preferences.",
         "It's time to wake {{user}} up. Send him a small message.",
     ],  
-    wakeUpRepeat: false,
+    wakeUpRepeat: true,
     repeatTime: 300,
     maxRepeats: 1,    
     repeatPrompts: [
