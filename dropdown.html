@@ -1,0 +1,81 @@
+<div class="CharacterWakeUp-settings">
+  <div class="inline-drawer">
+    <div class="inline-drawer-toggle inline-drawer-header" title="Indicates the settings for the Character Wake Up feature.">
+      <b>Character Wake Up</b>
+      <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+    </div>
+
+
+    <div class="inline-drawer-content">
+      
+      <div>
+        <p>
+          Press any key after the alarm starts to cancel it.
+        </p>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <input id="WakeUp_enabled" type="checkbox" title="Toggle to enable or disable the Character Wake Up feature." />
+        <label for="WakeUp_enabled">I'm enabled?</label>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <input id="WakeUp_hour" class="text_pole widthUnset" type="number" min="0" max="23" step="1" title="The hour at which you want to se up the alarm" />
+        <label for="WakeUp_hour">Wake Up Hour</label>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <input id="WakeUp_minute" class="text_pole widthUnset" type="number" min="0" max="60" step="1" title="The minute at which you want to se up the alarm" />
+        <label for="WakeUp_minute">Wake Up Minute</label>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <label for="WakeUp_prompts">Wake Up Prompts</label>
+        <textarea id="WakeUp_prompts" class="text_pole textarea_compact" rows="6" title="The prompts to be sent to wake you up (newline seperated)."></textarea>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <input id="WakeUp_use_repeat" type="checkbox" title="Indicates whether the AI will try to continuosly wake you up" />
+        <label for="WakeUp_use_repeat">Wake Up repeat</label>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <input id="WakeUp_repeat_time" class="text_pole widthUnset" type="number" min="0" max="100000" step="1" title="The time between wake up repeats in seconds." />
+        <label for="WakeUp_repeat_time">Wake Up Repeat Time</label>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <input id="WakeUp_max_Repeats" class="text_pole widthUnset" type="number" min="0" max="100" step="1" title="The number of times the AI will try to wake you up." />
+        <label for="WakeUp_max_Repeats">Wake Up max Repeats</label>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <label for="WakeUp_repeats_prompts">Wake Up Repeat Prompts</label>
+        <textarea id="WakeUp_repeats_prompts" class="text_pole textarea_compact" rows="6" title="The prompts to be sent when you don't wake up (newline seperated)."></textarea>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <input id="WokeUp_message" type="checkbox" title="Send message to AI after you wake up and also to cancel the alarm." />
+        <label for="WokeUp_message">Woke up message?</label>
+      </div>
+
+      <div class="WakeUp_block flex-container">
+        <label for="WakeUp_messages">Message for when you woke up</label>
+        <textarea id="WakeUp_messages" class="text_pole textarea_compact" rows="6" title="The prompts to be sent when you already wake up (newline seperated)."></textarea>
+      </div>
+      
+
+      <div class="WakeUp_block flex-container">
+        <label for="WakeUp_sendAs">Send As</label>
+        <select id="WakeUp_sendAs" class="text_pole" title="How to send the message">
+          <option value="user">User</option>
+          <option value="char">Character</option>
+          <option value="sys">System</option>
+          <option value="raw">Raw</option>
+        </select>
+      </div>
+
+      <hr class="sysHR" />
+    </div>
+  </div>
+</div>
