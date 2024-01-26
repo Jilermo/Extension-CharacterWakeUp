@@ -38,22 +38,13 @@ let defaultSettings = {
     enabled: false,
     wakeUpHour:9,
     wakeUpMinute:0,
-    wakeUpPrompts: [
-        "It's the next day and it's time to wake up {{user}} send write a message to wake him up, remember to take into account his preferences.",
-        "It's time to wake {{user}} up. Send him a small message.",
-    ],  
+    wakeUpPrompts: "It's the next day and it's time to wake up {{user}} send write a message to wake him up, remember to take into account his preferences.\nIt's time to wake {{user}} up. Send him a small message.",
     wakeUpRepeat: true,
     repeatTime: 300,
     maxRepeats: 1,    
-    repeatPrompts: [
-        "{{user}} doesn't give signs of waking up.",
-        "{{user}} it's still fast asleep.",
-    ],   
+    repeatPrompts: "{{user}} doesn't give signs of waking up.\n{{user}} it's still fast asleep.",   
     useWokeUp:true,
-    wakeUpmessages: [
-        "{{User}} has already woke up",
-        "{{char}} sees {{user}}'s eyes opening.",
-    ],        
+    wakeUpmessages: "{{User}} has already woke up\n{{char}} sees {{user}}'s eyes opening.",
     sendAs: 'user',    
 };
 
@@ -67,13 +58,13 @@ function populateUIWithSettings() {
     $('#WakeUp_enabled').prop('checked', extension_settings[extensionApodo].enabled).trigger('input');
     $('#WakeUp_hour').val(extension_settings[extensionApodo].wakeUpHour).trigger('input');
     $('#WakeUp_minute').val(extension_settings[extensionApodo].wakeUpMinute).trigger('input');
-    $('#WakeUp_prompts').val(extension_settings[extensionApodo].wakeUpPrompts.join('\n')).trigger('input');
+    $('#WakeUp_prompts').val(extension_settings[extensionApodo].wakeUpPrompts).trigger('input');        
     $('#WakeUp_use_repeat').prop('checked', extension_settings[extensionApodo].wakeUpRepeat).trigger('input');
     $('#WakeUp_repeat_time').val(extension_settings[extensionApodo].repeatTime).trigger('input');
     $('#WakeUp_max_Repeats').val(extension_settings[extensionApodo].maxRepeats).trigger('input');
-    $('#WakeUp_repeats_prompts').val(extension_settings[extensionApodo].repeatPrompts.join('\n')).trigger('input');
+    $('#WakeUp_repeats_prompts').val(extension_settings[extensionApodo].repeatPrompts).trigger('input');
     $('#WokeUp_message').prop('checked', extension_settings[extensionApodo].useWokeUp).trigger('input');
-    $('#WakeUp_messages').val(extension_settings[extensionApodo].wakeUpmessages.join('\n')).trigger('input');
+    $('#WakeUp_messages').val(extension_settings[extensionApodo].wakeUpmessages).trigger('input');
 }
 
 //TODO: Can we make this a generic function?
@@ -138,9 +129,10 @@ async function sendWakeUpMessage() {
         RescheduleWakeUpMessage();
         return;
     }
-
-    const randomPrompt = extension_settings[extensionApodo].wakeUpPrompts[
-        Math.floor(Math.random() * extension_settings[extensionApodo].wakeUpPrompts.length)
+        
+    let prompts=extension_settings[extensionApodo].wakeUpPrompts.split("\n")
+    const randomPrompt = prompts[
+        Math.floor(Math.random() * prompts.length)
     ];
 
     sendWakeUpPrompt(randomPrompt);
@@ -201,8 +193,9 @@ function SendWakeUpRepeatMessage(){
         return;
     }
 
-    const randomPrompt = extension_settings[extensionApodo].repeatPrompts[
-        Math.floor(Math.random() * extension_settings[extensionApodo].repeatPrompts.length)
+    let prompts=extension_settings[extensionApodo].repeatPrompts.split("\n")
+    const randomPrompt = prompts[
+        Math.floor(Math.random() * prompts.length)
     ];
 
     sendWakeUpRepeatPrompt(randomPrompt);
@@ -267,8 +260,9 @@ function SendWokeUpMessage(){
         return;
     }
 
-    const randomPrompt = extension_settings[extensionApodo].wakeUpmessages[
-        Math.floor(Math.random() * extension_settings[extensionApodo].wakeUpmessages.length)
+    let prompts=extension_settings[extensionApodo].wakeUpmessages.split("\n")
+    const randomPrompt = prompts[
+        Math.floor(Math.random() * prompts.length)
     ];
 
     sendWokeUpPrompt(randomPrompt);
@@ -375,10 +369,7 @@ function updateSetting(elementId, property, isCheckbox = false) {
     if (isCheckbox) {
         value = $(`#${elementId}`).prop('checked');
     }
-
-    if (property === 'repeatPrompts') {
-        value = value.split('\n');
-    }    
+  
     extension_settings[extensionApodo][property] = value;
     saveSettingsDebounced();
 }
