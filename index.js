@@ -116,7 +116,7 @@ function setWakeUpAlarm() {
         console.log("setting alarm for")
         console.log(new Date(now.getFullYear(), now.getMonth(), now.getDate(), extension_settings[extensionApodo].wakeUpHour, extension_settings[extensionApodo].wakeUpMinute, 0, 0))
     }
-    wakeUpAlarm = setInterval(handleInterval, 30000,extension_settings[extensionApodo].wakeUpHour,extension_settings[extensionApodo].wakeUpMinute,sendWakeUpMessage);
+    wakeUpAlarm = setInterval(handleInterval, 45000,extension_settings[extensionApodo].wakeUpHour,extension_settings[extensionApodo].wakeUpMinute,sendWakeUpMessage);
 }
 
 async function sendWakeUpMessage() {
