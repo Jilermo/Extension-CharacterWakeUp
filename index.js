@@ -113,7 +113,7 @@ function setWakeUpAlarm() {
 async function sendWakeUpMessage() {
     
     clearInterval(wakeUpAlarm);
-    console.log("sending wake up message and wakeUpAlarm cleared")
+    //console.log("sending wake up message and wakeUpAlarm cleared")
     let context = getContext();
     if (!extension_settings[extensionApodo].enabled){
         return;
@@ -125,7 +125,7 @@ async function sendWakeUpMessage() {
 
     // Check repeat conditions and waiting for a response
     if ($('#mes_stop').is(':visible')) {
-        console.debug("waiting for a response.");
+        //console.debug("waiting for a response.");
         RescheduleWakeUpMessage();
         return;
     }
@@ -154,8 +154,8 @@ function RescheduleWakeUpMessage(){
 function sendWakeUpPrompt(prompt) {    
     clearTimeout(wakeUpAlarm);
     $('#send_textarea').off('input');
-    console.debug('Sending idle prompt');
-    console.log(extension_settings[extensionApodo]);
+    //console.debug('Sending idle prompt');
+    //console.log(extension_settings[extensionApodo]);
     sendLoud(extension_settings[extensionApodo].sendAs, prompt);
     wakingUpUser=true;
 }
@@ -188,7 +188,7 @@ function SendWakeUpRepeatMessage(){
 
     // Check repeat conditions and waiting for a response
     if ($('#mes_stop').is(':visible')) {
-        console.debug("waiting for a response.");
+        //console.debug("waiting for a response.");
         RescheduleWakeUpRepeatMessage();
         return;
     }
@@ -216,8 +216,8 @@ function sendWakeUpRepeatPrompt(prompt) {
     clearTimeout(wakeUpRepeatAlarm);
     $('#send_textarea').off('input');
 
-    console.debug('Sending idle prompt');
-    console.log(extension_settings[extensionApodo]);
+    //console.debug('Sending idle prompt');
+    //console.log(extension_settings[extensionApodo]);
     repeatCount++
     sendLoud(extension_settings[extensionApodo].sendAs, prompt);    
 }
@@ -255,7 +255,7 @@ function SendWokeUpMessage(){
     
     // Check repeat conditions and waiting for a response
     if ($('#mes_stop').is(':visible')) {
-        console.debug("waiting for a response.");
+        //console.debug("waiting for a response.");
         RescheduleWokeUpMessage();
         return;
     }
@@ -282,7 +282,7 @@ function sendWokeUpPrompt(prompt) {
     if (wokeUpAlarm) clearTimeout(wokeUpAlarm);
     $('#send_textarea').off('input');
 
-    console.debug('Sending Woke Up prompt prompt');
+    //console.debug('Sending Woke Up prompt prompt');
     console.log(extension_settings[extensionApodo]);    
     if(extension_settings[extensionApodo].useWokeUp){
         sendLoud(extension_settings[extensionApodo].sendAs, prompt);    
@@ -294,7 +294,7 @@ function sendWokeUpPrompt(prompt) {
 function handleInterval(hour,minute,functionToCall){
     var currentdate = new Date();
     if(hour==currentdate.getHours() && minute==currentdate.getMinutes()){
-        console.log("calling function")
+        //console.log("calling function")
         functionToCall();
     }
 }
@@ -336,9 +336,9 @@ function sendPrompt(prompt) {
 
     if (extension_settings[extensionApodo].useContinuation) {
         $('#option_continue').trigger('click');
-        console.debug('Sending idle prompt with continuation');
+        //console.debug('Sending idle prompt with continuation');
     } else {
-        console.debug('Sending idle prompt');
+        //console.debug('Sending idle prompt');
         console.log(extension_settings[extensionApodo]);
         if (extension_settings[extensionApodo].includePrompt) {
             sendLoud(extension_settings[extensionApodo].sendAs, prompt);
