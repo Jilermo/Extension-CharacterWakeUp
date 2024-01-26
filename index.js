@@ -39,17 +39,20 @@ let defaultSettings = {
     wakeUpHour:9,
     wakeUpMinute:0,
     wakeUpPrompts: [
-        "It's the next day and it's time to wake up {{user}} send write a message to wake him up, remember to take into account his preferences.",        
+        "It's the next day and it's time to wake up {{user}} send write a message to wake him up, remember to take into account his preferences.",
+        "It's time to wake {{user}} up. Send him a small message.",
     ],  
     wakeUpRepeat: false,
     repeatTime: 300,
     maxRepeats: 1,    
     repeatPrompts: [
         "{{user}} doesn't give signs of waking up.",
+        "{{user}} it's still fast asleep.",
     ],   
     useWokeUp:true,
     wakeUpmessages: [
         "{{User}} has already woke up",
+        "{{char}} sees {{user}}'s eyes opening.",
     ],        
     sendAs: 'user',    
 };
