@@ -16,7 +16,7 @@ let wakeUpAlarmTimeOut=null;
 let wakeUpRepeatAlarm = null;
 let wokeUpAlarm = null;
 let repeatCount = 0;
-let resetToDefaults=false;
+let resetToDefaults=true;
 let wakingUpUser=false;
 let millisTillTime=10;
 
@@ -29,7 +29,8 @@ const settingsOptions = [
     ['WakeUp_repeat_time', 'repeatTime'],
     ['WakeUp_max_Repeats', 'maxRepeats'],
     ['WakeUp_repeats_prompts', 'repeatPrompts'],
-    ['WakeUp_messages', 'wakeUpmessages'],    
+    ['WokeUp_message', 'useWokeUp'],    
+    ['WakeUp_messages', 'wakeUpmessages'],            
     ['WakeUp_sendAs', 'sendAs'],    
 ];
 
