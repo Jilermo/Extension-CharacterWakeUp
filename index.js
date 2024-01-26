@@ -67,7 +67,12 @@ function populateUIWithSettings() {
     $('#WakeUp_enabled').prop('checked', extension_settings[extensionApodo].enabled).trigger('input');
     $('#WakeUp_hour').val(extension_settings[extensionApodo].wakeUpHour).trigger('input');
     $('#WakeUp_minute').val(extension_settings[extensionApodo].wakeUpMinute).trigger('input');
-    $('#WakeUp_prompts').val(extension_settings[extensionApodo].wakeUpPrompts.join('\n')).trigger('input');
+    if(extension_settings[extensionApodo].wakeUpPrompts.length>1){
+        $('#WakeUp_prompts').val(extension_settings[extensionApodo].wakeUpPrompts.join('\n')).trigger('input');
+    }else{
+        $('#WakeUp_prompts').val(extension_settings[extensionApodo].wakeUpPrompts).trigger('input');
+    }
+    
     $('#WakeUp_use_repeat').prop('checked', extension_settings[extensionApodo].wakeUpRepeat).trigger('input');
     $('#WakeUp_repeat_time').val(extension_settings[extensionApodo].repeatTime).trigger('input');
     $('#WakeUp_max_Repeats').val(extension_settings[extensionApodo].maxRepeats).trigger('input');
